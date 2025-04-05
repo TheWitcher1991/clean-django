@@ -46,6 +46,10 @@ class Error:
         return Error(code=code, message=message, type=ErrorType.NotFound)
 
     @staticmethod
+    def null(code: str, message: str) -> "Error":
+        return Error(code=code, message=message, type=ErrorType.Null)
+
+    @staticmethod
     def forbidden(code: str, message: str) -> "Error":
         return Error(code=code, message=message, type=ErrorType.Forbidden)
 

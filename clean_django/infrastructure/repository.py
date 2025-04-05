@@ -9,6 +9,12 @@ class AbstractRepository(ABC, Generic[T]):
     def get_by_id(self, id: int) -> Optional[T]: ...
 
     @abstractmethod
+    def filter(self, **kwargs) -> list[T]: ...
+
+    @abstractmethod
+    def list(self) -> list[T]: ...
+
+    @abstractmethod
     def add(self, entity: T) -> T: ...
 
     @abstractmethod
@@ -16,6 +22,3 @@ class AbstractRepository(ABC, Generic[T]):
 
     @abstractmethod
     def delete(self, entity: T) -> None: ...
-
-    @abstractmethod
-    def list(self) -> list[T]: ...

@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 
 
-class BaseModel(models.Model):
+class AbstractModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -10,7 +10,7 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class BaseUserModel(AbstractUser):
+class AbstractUserModel(AbstractUser):
     objects = UserManager()
 
     class Meta:

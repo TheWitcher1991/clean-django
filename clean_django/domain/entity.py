@@ -1,9 +1,7 @@
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
 from typing import Any, TypeVar
 
 
-@dataclass(kw_only=True)
 class Entity(ABC):
     id: int | None = None
 
@@ -19,11 +17,13 @@ class Entity(ABC):
         return hash(self.id)
 
     @abstractmethod
-    def validate(self) -> None:
-        raise NotImplementedError("validate() must be implemented in subclasses")
+    def validate(self) -> None: ...
 
-    def to_dict(self) -> dict:
-        return {"id": str(self.id)}
+    @abstractmethod
+    def to_dict(self) -> dict: ...
+
+    @abstractmethod
+    def create(self, data: dict) -> dict: ...
 
 
 EntityType = TypeVar("EntityType", bound=Entity)

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class BaseDTO(ABC):
+class AbstractDTO(ABC):
     @classmethod
     @abstractmethod
     def from_dict(cls, data: dict): ...

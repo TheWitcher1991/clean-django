@@ -9,6 +9,10 @@ class AbstractUnitOfWork(ABC):
         self.rollback()
 
     @abstractmethod
+    def begin(self): ...
+
+    @abstractmethod
     def commit(self): ...
+
     @abstractmethod
     def rollback(self): ...

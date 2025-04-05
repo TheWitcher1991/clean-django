@@ -6,6 +6,7 @@ class LoggerResource(Enum):
 
 
 class ErrorType(Enum):
+    Null = ("null",)
     Validation = ("validation",)
     NotFound = ("not_found",)
     Forbidden = ("forbidden",)
