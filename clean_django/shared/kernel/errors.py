@@ -7,6 +7,11 @@ from clean_django.shared.kernel import Error
 class Errors:
 
     @staticmethod
+    def value_is_invalid(value=None):
+        label = value or "value"
+        return Error.validation("invalid.input", f"{label} is invalid.")
+
+    @staticmethod
     def invalid_credentials():
         return Error.validation("credentials.is.invalid", "Your credentials is invalid")
 
